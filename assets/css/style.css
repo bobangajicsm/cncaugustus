@@ -1,6 +1,10 @@
 /* CNC Metalworking Augustus — site styles
    Palette taken from the logo: #0059FF (blue), #08AEF8 (sky), #080764 (navy text) */
 
+iframe#nl-badge-frame {
+    display: none;
+}
+
 :root {
   --navy-950: #05072A;
   --navy-900: #080B3A;
