@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <polygon points="60,4 108,32 108,88 60,116 12,88 12,32" fill="none" stroke="#080B3A" stroke-width="4"/>
+  <polygon points="60,14 99,37 99,83 60,106 21,83 21,37" fill="none" stroke="#0059FF" stroke-width="1.5"/>
+  <text x="60" y="47" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="10" letter-spacing="3" fill="#0059FF">CERTIFIED</text>
+  <text x="60" y="70" text-anchor="middle" font-family="'IBM Plex Mono', Consolas, monospace" font-weight="600" font-size="17" fill="#080B3A">ISO 9001</text>
+  <text x="60" y="88" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="8" letter-spacing="2" fill="#080B3A">SERBIA · EU</text>
+</svg>
