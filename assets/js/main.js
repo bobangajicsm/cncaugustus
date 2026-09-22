@@ -17,18 +17,43 @@
   });
 })();
 
-// Contact form: basic client-side check before sending
+// Contact form: AJAX submit via Formspree so the page never navigates away
 (function () {
   var form = document.querySelector('form[data-contact]');
   if (!form) return;
+
   form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Client-side required check
     var required = form.querySelectorAll('[required]');
     for (var i = 0; i < required.length; i++) {
       if (!required[i].value.trim()) {
-        e.preventDefault();
         required[i].focus();
         return;
       }
     }
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (res.ok) {
+        form.reset();
+        var msg = form.parentNode.querySelector('.form-sent');
+        if (msg) msg.style.display = 'block';
+        form.style.display = 'none';
+      } else {
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or email us directly.');
+      }
+    }).catch(function () {
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or email us directly.');
+    });
   });
 })();

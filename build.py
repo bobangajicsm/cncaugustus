@@ -174,6 +174,7 @@ T = {
         "f_topic": "I am interested in", "topics": ["Free sample set", "Price list", "Quote for CNC work", "Other"],
         "f_qty": "Approximate annual quantity (optional)", "f_msg": "Message",
         "f_send": "Send request", "f_note": "Prefer email? Write to us directly at",
+        "sent_h": "Request sent!", "sent_p": "Thank you — we will reply within one working day.",
         "info_h": "Company details",
         "i_addr": "Address", "i_phone": "Phone", "i_mail": "Email", "i_hours": "Working hours",
         "hours": "Monday to Friday, 08:00–16:00 (CET)",
@@ -304,6 +305,7 @@ T = {
         "f_topic": "Zanima me", "topics": ["Besplatan probni komplet", "Cenovnik", "Ponuda za CNC obradu", "Drugo"],
         "f_qty": "Okvirna godišnja količina (opciono)", "f_msg": "Poruka",
         "f_send": "Pošaljite upit", "f_note": "Više volite email? Pišite nam direktno na",
+        "sent_h": "Upit poslat!", "sent_p": "Hvala — odgovaramo u roku od jednog radnog dana.",
         "info_h": "Podaci o firmi",
         "i_addr": "Adresa", "i_phone": "Telefon", "i_mail": "Email", "i_hours": "Radno vreme",
         "hours": "Ponedeljak do petak, 08:00–16:00",
@@ -729,6 +731,11 @@ def page_contact(lang, t):
         <button class="btn btn-primary btn-lg" type="submit">{p["f_send"]}</button>
         <p class="form-note">{p["f_note"]} <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
       </form>
+      <div class="form-sent">
+        <div class="sent-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>{p["sent_h"]}</h3>
+        <p>{p["sent_p"]}</p>
+      </div>
     </div>
     <div>
       <h2 style="font-size:1.4rem">{p["info_h"]}</h2>

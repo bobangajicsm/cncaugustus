@@ -295,6 +295,11 @@ a.card:hover { text-decoration: none; transform: translateY(-4px); box-shadow: v
 .field textarea { min-height: 130px; resize: vertical; }
 .form-note { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.75rem; }
 .hp { position: absolute; left: -9999px; }
+.form-sent { display: none; padding: 2rem; text-align: center; border-radius: var(--radius-lg); background: var(--steel-50); border: 1px solid var(--steel-200); }
+.form-sent .sent-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--blue); color: var(--white); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+.form-sent .sent-icon svg { width: 26px; height: 26px; }
+.form-sent h3 { color: var(--navy-900); margin-bottom: 0.4rem; }
+.form-sent p { color: var(--ink-soft); font-size: 0.97rem; margin: 0; }
 .info-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
 .info-list li { display: grid; grid-template-columns: 40px 1fr; gap: 0.9rem; }
 .info-list .ico { width: 40px; height: 40px; border-radius: 8px; background: var(--navy-900); color: var(--sky); display: flex; align-items: center; justify-content: center; }
