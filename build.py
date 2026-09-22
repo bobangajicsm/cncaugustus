@@ -28,7 +28,7 @@ SOCIAL = {
     "tiktok": "https://www.tiktok.com/@cnc.metalworking.augustu",
     "facebook": "https://www.facebook.com/profile.php?id=61586065602689",
 }
-FORM_ACTION = "https://formspree.io/f/REPLACE_WITH_FORM_ID"  # vidi README
+FORM_ACTION = "https://formspree.io/f/mrpbqaqp"
 
 # ---------------------------------------------------------------- icons
 ICONS = {
