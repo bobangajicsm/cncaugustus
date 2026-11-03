@@ -323,9 +323,17 @@ def rel(frm, to):
 def esc(s):
     return s
 
+def url(path):
+    """Clean public URL: folder/index.html -> folder/, page.html -> page (matches Netlify pretty URLs)."""
+    if path.endswith("index.html"):
+        path = path[:-len("index.html")]
+    elif path.endswith(".html"):
+        path = path[:-len(".html")]
+    return f"{DOMAIN}/{path}"
+
 def head(lang, key, t, page, extra_css=""):
     me = PAGES[key][lang]; en = PAGES[key]["en"]
-    alts = "".join(f'<link rel="alternate" hreflang="{l}" href="{DOMAIN}/{PAGES[key][l]}">\n' for l in LANGS)
+    alts = "".join(f'<link rel="alternate" hreflang="{l}" href="{url(PAGES[key][l])}">\n' for l in LANGS)
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -341,12 +349,12 @@ def head(lang, key, t, page, extra_css=""):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{page["title"]}</title>
 <meta name="description" content="{page["desc"]}">
-<link rel="canonical" href="{DOMAIN}/{me}">
-{alts}<link rel="alternate" hreflang="x-default" href="{DOMAIN}/{en}">
+<link rel="canonical" href="{url(me)}">
+{alts}<link rel="alternate" hreflang="x-default" href="{url(en)}">
 <meta property="og:title" content="{page["title"]}">
 <meta property="og:description" content="{page["desc"]}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="{DOMAIN}/{me}">
+<meta property="og:url" content="{url(me)}">
 <meta property="og:image" content="{DOMAIN}/assets/img/window-opener.jpg">
 <link rel="icon" href="{rel(me,'favicon.ico')}" sizes="any">
 <link rel="icon" type="image/png" href="{rel(me,'assets/img/favicon.png')}">
@@ -785,7 +793,7 @@ for lang in LANGS:
 
 # sitemap + robots
 urls = [PAGES[k][l] for k in PAGES for l in LANGS]
-sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{DOMAIN}/{u}</loc></url>\n" for u in urls) + "</urlset>\n"
+sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{url(u)}</loc></url>\n" for u in urls) + "</urlset>\n"
 write("sitemap.xml", sm)
 write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {DOMAIN}/sitemap.xml\n")
 print("built", len(urls), "pages")
